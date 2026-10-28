@@ -1,0 +1,66 @@
+/*
+  Tailwind يتولى التصميم على الشاشة (من index.html).
+  هذا الملف يحتوي على قواعد الطباعة فقط، وهي تتجاوز أنماط Tailwind
+  لأنها غير موضوعة داخل طبقات (layers).
+*/
+
+.memory-page::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.35) 1px,transparent 1.2px);
+  background-size:22px 22px;opacity:.5;
+}
+
+@page{size:A4;margin:0}
+
+@media print{
+  html,body{
+    background:none !important;overflow:visible !important;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+
+  /* الغلاف: صفحة A4 كاملة */
+  .cover{
+    min-height:0 !important;height:297mm !important;
+    break-after:page;page-break-after:always;
+  }
+
+  /* كل صفحة A4 كاملة، فيها 3 محطات تملأ ارتفاعها */
+  .memory-page{
+    width:210mm !important;height:297mm !important;min-height:0 !important;
+    padding:14mm 10mm 18mm !important;
+    gap:0 !important;
+    justify-content:space-evenly;
+    overflow:hidden !important;
+    break-after:page;page-break-after:always;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  .memory-page:last-child{break-after:auto;page-break-after:auto}
+
+  /* الخط الزمني يمتد من أعلى كل صفحة لأسفلها، والصفحات متلاصقة فيبقى متصلاً */
+  .spine{top:0 !important;bottom:0 !important}
+
+  .station{
+    max-width:none !important;
+    opacity:1 !important;
+    translate:none !important;
+    grid-template-columns:1fr 40px 1fr !important;
+    padding:0 !important;
+    break-inside:avoid;page-break-inside:avoid;
+  }
+  .station .card{
+    box-shadow:none !important;
+    break-inside:avoid;page-break-inside:avoid;
+  }
+  .station .card p{font-size:9.5pt !important;line-height:1.6 !important}
+  .station .card time{font-size:8pt !important}
+
+  /* الصورة داخل إطار 4:3 ثابت */
+  .station .photo img{
+    position:absolute !important;inset:0 !important;
+    width:100% !important;height:100% !important;
+    object-fit:cover !important;
+  }
+
+  /* رقم الصفحة في الأسفل */
+  .pno{display:block !important}
+}
