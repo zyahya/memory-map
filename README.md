@@ -7,7 +7,7 @@ Show your life memories as a beautiful memory map with images and ability to pri
 ![Landing page screenshot](./assets/landing-page-02.png)
 ![Landing page screenshot](./assets/landing-page-01.png)
 
-## Running and using
+## Usage
 
 Run the app using this command in the root directory:
 
@@ -16,6 +16,9 @@ python -m http.server
 ```
 
 Then open this url: `http://localhost:8000`
+
+> [!NOTE]
+> Keep all images in `4:3` ratio to get the best result
 
 ## Features
 
