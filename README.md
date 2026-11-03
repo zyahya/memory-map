@@ -1,26 +1,60 @@
 # Memory Map
 
-Show your life memories as a beautiful memory map with images and ability to print it into PDF version!
+Turn your life memories into a beautiful visual journey. **Memory Map** lets you organize your memories on an interactive map with photos, dates, and descriptions — then transform them into a beautifully formatted, storybook-style PDF that you can print and keep.
 
 ## Screenshots
 
-![Landing page screenshot](./assets/landing-page-02.png)
-![Landing page screenshot](./assets/landing-page-01.png)
+![Landing Page](./assets/landing-page-02.png)
 
-## Usage
+![Landing Page](./assets/landing-page-01.png)
 
-Run the app using this command in the root directory:
+## Getting Started
+
+The only thing you will need is [Python](https://www.python.org), ensure it's installed by running the following command:
+
+```
+$ python --version
+Python 3.12.11
+```
+
+If you didn't see the version then you need to install it from this [link](https://www.python.org/downloads/).
+
+### 1. Run the Application
+
+From the project's root directory, run:
 
 ```sh
 python -m http.server
 ```
 
-Then open this url: `http://localhost:8000`
+### 2. Open in Your Browser
 
-> [!NOTE]
-> Keep all images in `4:3` ratio to get the best result
+Visit [http://localhost:8000](http://localhost:8000).
+
+## Adding Your Memories
+
+Your memories are stored in a JSON file in the root directory called: `memories.json`. Add your entries in the file using the following structure:
+
+```json
+[
+  {
+    "date": "2020-10-30",
+    "image": "./path/to/image.png",
+    "description": "Add your memory description here."
+  }
+]
+```
+
+- **date**: The date of the memory (`YYYY-MM-DD`).
+- **image**: Path to an image representing the memory (optional).
+- **description**: A short description of the memory.
+
+> [!TIP]
+> Use images with a **4:3 aspect ratio** for the best visual experience.
 
 ## Features
 
-1. Beautiful and simple design.
-2. Optimized PDF version of the content.
+- A clean, simple interface focused on your memories.
+- Complete Arabic language support.
+- Print your memories as a beautifully formatted, storybook-style PDF.
+- No packages to install or build steps required.
